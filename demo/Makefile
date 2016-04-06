@@ -1,4 +1,4 @@
-TAG=2.0-SNAPSHOT
+TAG=$(shell perl -n -e 'if (/workflow-aggregator:(.+)/) {print $$1}' plugins.txt)
 IMAGE=jenkinsci/workflow-demo
 DOCKER_RUN=docker run --rm -p 2222:2222 -p 8080:8080 -p 8081:8081 -p 9418:9418 -ti
 
