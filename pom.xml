@@ -80,6 +80,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>workflow-support</artifactId>
             <version>2.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jenkins-ci.plugins</groupId>
+                    <artifactId>script-security</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>

@@ -29,7 +29,6 @@ USER jenkins
 RUN echo '<settings><mirrors><mirror><id>central</id><url>http://repo.jenkins-ci.org/simple/repo1-cache/</url><mirrorOf>central</mirrorOf></mirror></mirrors><localRepository>/usr/share/jenkins/ref/.m2/repository</localRepository></settings>' > settings.xml
 RUN /usr/local/maven/bin/mvn -s settings.xml -f repo-wc install && /usr/local/maven/bin/mvn -s settings.xml -f repo-wc/sometests -Dmaven.test.failure.ignore clean install
 
-ENV JENKINS_UC http://jenkins-updates.cloudbees.com
 COPY plugins.txt .
 RUN /usr/local/bin/plugins.sh plugins.txt
 
