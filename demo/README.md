@@ -15,7 +15,7 @@ VM's IP (instead of `localhost`).  You can get this by running `boot2docker ip` 
 
 The continuous delivery pipeline consists of the following sequence.
 
-* Loads the Pipeline script from [Jenkinsfile](https://github.com/jenkinsci/workflow-plugin/blob/master/demo/repo/Jenkinsfile) in a local Git repository.
+* Loads the Pipeline script from [Jenkinsfile](repo/Jenkinsfile) in a local Git repository.
   You may clone from, edit, and push to `git://localhost/repo`.
   Each branch automatically creates a matching subproject that builds that branch.
 * Checks out source code from the same repository and commit as `Jenkinsfile`.
@@ -31,7 +31,7 @@ To log in to the container, get `nsenter` and [you can use docker-enter](http://
 or just use `docker exec -ti $container /bin/bash`.
 This is useful to kill Jetty to simulate a failure in the production deployment (via `pkill -9 -f jetty`) or restart it (via `jetty &`)
 
-[Binary image page](https://registry.hub.docker.com/u/jenkinsci/workflow-demo/)
+[Binary image page](https://hub.docker.com/r/jenkinsci/workflow-demo/)
 
 Sample demo scenario
 --------------------
@@ -52,4 +52,4 @@ CloudBees Jenkins Enterprise variant
 --------------------------
 
 If you would like to see CloudBees Jenkins Enterprise features (such as checkpoints),
-see the [extended demo page](https://registry.hub.docker.com/u/cloudbees/workflow-demo/).
+see the [extended demo page](https://hub.docker.com/r/cloudbees/workflow-demo/).
