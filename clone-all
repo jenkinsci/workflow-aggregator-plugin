@@ -8,15 +8,6 @@ else
   username=$1
 fi
 
-git clone git@github.com:$username/workflow-step-api-plugin.git ../workflow-step-api-plugin
-git clone git@github.com:$username/workflow-api-plugin.git ../workflow-api-plugin
-git clone git@github.com:$username/workflow-support-plugin.git ../workflow-support-plugin
-git clone git@github.com:$username/workflow-durable-task-step-plugin.git ../workflow-durable-task-step-plugin
-git clone git@github.com:$username/workflow-scm-step-plugin.git ../workflow-scm-step-plugin
-git clone git@github.com:$username/workflow-cps-global-lib-plugin.git ../workflow-cps-global-lib-plugin
-git clone git@github.com:$username/workflow-cps-plugin.git ../workflow-cps-plugin
-git clone git@github.com:$username/workflow-job-plugin.git ../workflow-job-plugin
-git clone git@github.com:$username/workflow-basic-steps-plugin.git ../workflow-basic-steps-plugin
-git clone git@github.com:$username/pipeline-build-step-plugin.git ../pipeline-build-step-plugin
-git clone git@github.com:$username/pipeline-input-step-plugin.git ../pipeline-input-step-plugin
-git clone git@github.com:$username/pipeline-stage-step-plugin.git ../pipeline-stage-step-plugin
+for p in $(cat demo/plugins.txt | perl -pe s/:.+//g | grep -E 'workflow-|pipeline-' | grep -v 'pipeline-rest-api' | grep -v 'workflow-aggregator'); do
+  git clone git@github.com:$username/$p-plugin.git ../$p-plugin
+done
