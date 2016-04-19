@@ -9,7 +9,10 @@ git-server:1.6
 handlebars:1.1.1
 icon-shim:2.0.3
 jquery-detached:1.2.1
+lockable-resources:1.8
+mailer:1.5
 mapdb-api:1.0.6.0
+matrix-project:1.4
 mock-slave:1.8
 momentjs:1.1.1
 pipeline-build-step:2.0
