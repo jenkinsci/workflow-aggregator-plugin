@@ -17,23 +17,24 @@ parallel(longerTests: {
     runTests(servers, 20)
 })
 
-milestone ordinal: 1
-lock (resource: 'staging-server', inversePrecedence: true) {
+milestone 1
+lock(resource: 'staging-server', inversePrecedence: true) {
     stage name: 'Staging'
     node {
         servers.deploy 'staging'
     }
 
     input message: "Does ${jettyUrl}staging/ look good?"
-    try {
-        checkpoint('Before production')
-    } catch (NoSuchMethodError _) {
-        echo 'Checkpoint feature available in CloudBees Jenkins Enterprise.'
-    }
+}
+
+try {
+    checkpoint('Before production')
+} catch (NoSuchMethodError _) {
+    echo 'Checkpoint feature available in CloudBees Jenkins Enterprise.'
 }
 
 milestone()
-lock ('production-server') {
+lock('production-server') {
     stage name: 'Production'
     node {
         sh "wget -O - -S ${jettyUrl}staging/"
