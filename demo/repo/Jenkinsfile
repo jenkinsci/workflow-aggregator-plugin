@@ -17,7 +17,7 @@ parallel(longerTests: {
     runTests(servers, 20)
 })
 
-milestone ordinal: 1
+milestone()
 lock(resource: 'staging-server', inversePrecedence: true) {
     stage name: 'Staging'
     node {
