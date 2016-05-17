@@ -17,7 +17,7 @@ parallel(longerTests: {
     runTests(servers, 20)
 })
 
-milestone()
+milestone 1
 lock(resource: 'staging-server', inversePrecedence: true) {
     stage name: 'Staging'
     node {
@@ -33,7 +33,7 @@ try {
     echo 'Checkpoint feature available in CloudBees Jenkins Enterprise.'
 }
 
-milestone()
+milestone 2
 lock('production-server') {
     stage name: 'Production'
     node {
