@@ -25,8 +25,8 @@ stage('Staging') {
         node {
             servers.deploy 'staging'
         }
-        input message: "Does ${jettyUrl}staging/ look good?"
     }
+    input message: "Does ${jettyUrl}staging/ look good?"
     try {
         checkpoint('Before production')
     } catch (NoSuchMethodError _) {
@@ -36,7 +36,7 @@ stage('Staging') {
 
 milestone 2
 stage ('Production') {
-    lock('production-server') {
+    lock(resource: 'production-server', inversePrecedence: true) {
         node {
             sh "wget -O - -S ${jettyUrl}staging/"
             echo 'Production server looks to be alive'
