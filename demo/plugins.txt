@@ -23,7 +23,7 @@ scm-api:1.2
 script-security:1.19
 ssh-credentials:1.12
 structs:1.2
-workflow-aggregator:2.1
+workflow-aggregator:2.2
 workflow-api:2.1
 workflow-basic-steps:2.0
 workflow-cps:2.6
