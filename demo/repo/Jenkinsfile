@@ -47,5 +47,6 @@ def runTests(servers, duration) {
         servers.runWithServer {id ->
             mvn "-o -f sometests test -Durl=${jettyUrl}${id}/ -Dduration=${duration}"
         }
+        junit '**/target/surefire-reports/TEST-*.xml'
     }
 }
