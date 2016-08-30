@@ -10,6 +10,7 @@ handlebars:1.1.1
 icon-shim:2.0.3
 jquery-detached:1.2.1
 junit:1.18
+lockable-resources:1.10
 mailer:1.17
 matrix-project:1.7.1
 mock-slave:1.9

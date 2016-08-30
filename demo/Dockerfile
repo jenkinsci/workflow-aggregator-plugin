@@ -29,7 +29,7 @@ USER jenkins
 RUN echo '<settings><mirrors><mirror><id>central</id><url>http://repo.jenkins-ci.org/simple/repo1-cache/</url><mirrorOf>central</mirrorOf></mirror></mirrors><localRepository>/usr/share/jenkins/ref/.m2/repository</localRepository></settings>' > settings.xml && \
     /usr/local/maven/bin/mvn -s settings.xml -f repo-wc install && /usr/local/maven/bin/mvn -s settings.xml -f repo-wc/sometests -Dmaven.test.failure.ignore clean install
 
-COPY plugins.txt .
+COPY plugins.txt ./
 RUN /usr/local/bin/plugins.sh plugins.txt
 
 # Now copy the complete repo including Pipeline script (not only the files needed to warm up the Maven cache).
