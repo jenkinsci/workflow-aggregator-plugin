@@ -58,3 +58,11 @@ def runTests(servers, duration) {
         junit '**/target/surefire-reports/TEST-*.xml'
     }
 }
+
+def milestone(n) {
+    try {
+        steps.milestone(n)
+    } catch (NoSuchMethodError _) {
+        echo 'JENKINS-27039: milestone step not yet released'
+    }
+}
