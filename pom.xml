@@ -106,6 +106,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>workflow-cps-global-lib</artifactId>
             <version>2.3</version>
+            <exclusions>
+                <exclusion>
+                  <groupId>org.apache.httpcomponents</groupId>
+                  <artifactId>httpclient</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
