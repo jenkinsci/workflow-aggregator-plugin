@@ -20,6 +20,7 @@
       <mode>NORMAL</mode>
       <numExecutors>1</numExecutors>
       <labelString></labelString>
+      <oneShot>false</oneShot>
     </org.jenkinci.plugins.mock__slave.MockCloud>
   </clouds>
    <slaves/>

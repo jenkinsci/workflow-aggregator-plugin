@@ -2,23 +2,27 @@ TAG=$(shell perl -n -e 'if (/workflow-aggregator:(.+)/) {print $$1}' plugins.txt
 IMAGE=jenkinsci/workflow-demo
 DOCKER_RUN=docker run --rm -p 127.0.0.1:2222:2222 -p 8080:8080 -p 8081:8081 -p 9418:9418 -ti
 
-build:
+copy-plugins:
+	set -e; \
+	rm -rf plugins; \
+	mkdir plugins; \
+	for gav in `cat plugins.txt`; do \
+	  g=`echo $$gav | cut -f1 -d: | perl -pe 's{[.]}{/}g'`; \
+	  a=`echo $$gav | cut -f2 -d:`; \
+	  v=`echo $$gav | cut -f3 -d:`; \
+	  hpi=$$HOME/.m2/repository/$$g/$$a/$$v/$$a-$$v.hpi; \
+	  if [ \! -f $$hpi ]; then \
+	    mvn -U org.apache.maven.plugins:maven-dependency-plugin:2.5.1:get -Dartifact=$$gav:hpi -Dtransitive=false ||\
+	      (locate $$a-$$v.hpi | fgrep .m2/repository/; false); \
+	  fi; \
+	  cp -v $$hpi plugins/$$a.jpi; \
+	done
+
+build: copy-plugins
 	docker build -t $(IMAGE):$(TAG) .
 
 run: build
 	$(DOCKER_RUN) $(IMAGE):$(TAG)
-
-build-snapshot:
-	docker build -t $(IMAGE):RELEASE .
-	mkdir -p snapshot-plugins
-	for p in $$(cat plugins.txt|perl -pe s/:.+//g; cat snapshot-only-plugins.txt); do echo looking for snapshot builds of $$p; for g in org/jenkins-ci/plugins org/jenkins-ci/plugins/workflow org/jenkins-ci/plugins/pipeline-stage-view; do if [ -f ~/.m2/repository/$$g/$$p/maven-metadata-local.xml ]; then cp -v $$(ls -1 ~/.m2/repository/$$g/$$p/*-SNAPSHOT/*.hpi | tail -1) snapshot-plugins/$$p.jpi; fi; done; done
-	docker build -f Dockerfile-snapshot -t $(IMAGE):SNAPSHOT .
-
-run-snapshot: build-snapshot
-	$(DOCKER_RUN) $(IMAGE):SNAPSHOT
-
-clean:
-	rm -rf snapshot-plugins
 
 push:
 	docker push $(IMAGE):$(TAG)
