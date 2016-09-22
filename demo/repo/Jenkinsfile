@@ -22,6 +22,7 @@ stage('QA') {
 milestone 1
 stage('Staging') {
     lock(resource: 'staging-server', inversePrecedence: true) {
+        milestone 2
         node {
             servers.deploy 'staging'
         }
@@ -34,7 +35,7 @@ stage('Staging') {
     }
 }
 
-milestone 2
+milestone 3
 stage ('Production') {
     lock(resource: 'production-server', inversePrecedence: true) {
         node {
