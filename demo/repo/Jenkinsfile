@@ -1,11 +1,11 @@
-jettyUrl = 'http://localhost:8081/'
+@Library('servers') import demo.Servers
 
-def servers
+jettyUrl = 'http://localhost:8081/'
+servers = new Servers(this)
 
 stage('Dev') {
     node {
         checkout scm
-        servers = load 'servers.groovy'
         mvn '-o clean package'
         dir('target') {stash name: 'war', includes: 'x.war'}
     }
@@ -13,9 +13,9 @@ stage('Dev') {
 
 stage('QA') {
     parallel(longerTests: {
-        runTests(servers, 30)
+        runTests(30)
     }, quickerTests: {
-        runTests(servers, 20)
+        runTests(20)
     })
 }
 
@@ -50,10 +50,10 @@ def mvn(args) {
     sh "${tool 'Maven 3.x'}/bin/mvn ${args}"
 }
 
-def runTests(servers, duration) {
+def runTests(duration) {
     node {
         checkout scm
-        servers.runWithServer {id ->
+        servers.withDeployment {id ->
             mvn "-o -f sometests test -Durl=${jettyUrl}${id}/ -Dduration=${duration}"
         }
         junit '**/target/surefire-reports/TEST-*.xml'

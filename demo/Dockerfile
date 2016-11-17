@@ -37,8 +37,9 @@ USER jenkins
 # Now copy the complete repo including Pipeline script (not only the files needed to warm up the Maven cache).
 RUN rm -rf repo-wc
 ADD repo repo-wc
+ADD lib lib
 USER root
-RUN chown -R jenkins.jenkins repo-wc
+RUN chown -R jenkins.jenkins repo-wc lib
 USER jenkins
 RUN git init --bare repo && \
     cd repo-wc && \
@@ -47,7 +48,11 @@ RUN git init --bare repo && \
     git -c user.email=demo@jenkins-ci.org -c user.name="Pipeline Demo" commit -m 'demo' && \
     git push ../repo master && \
     cd .. && \
-    rm -rfv repo-wc
+    rm -rfv repo-wc && \
+    cd lib && \
+    git init && \
+    git add . && \
+    git -c user.email=demo@jenkins-ci.org -c user.name="Pipeline Demo" commit -m 'demo'
 # TODO deletion of repo-wc does not seem to work: claims to have been deleted, but then still there in subsequent steps; anyway it is small
 # RUN ls -lRa; false
 
