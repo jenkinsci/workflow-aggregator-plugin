@@ -20,14 +20,14 @@ RUN wget -q -O - "http://archive.eclipse.org/jetty/$JETTY_VERSION/dist/jetty-dis
 WORKDIR /tmp/files
 
 # Prepare local Maven repo. Note that $JENKINS_HOME is a volume so we cannot populate it now.
-RUN mkdir repo-wc
-ADD repo/pom.xml repo-wc/pom.xml
-ADD repo/src repo-wc/src
-ADD repo/sometests repo-wc/sometests
+RUN mkdir repo
+ADD repo/pom.xml repo/pom.xml
+ADD repo/src repo/src
+ADD repo/sometests repo/sometests
 RUN chown -R jenkins.jenkins .
 USER jenkins
 RUN echo '<settings><mirrors><mirror><id>central</id><url>http://repo.jenkins-ci.org/simple/repo1-cache/</url><mirrorOf>central</mirrorOf></mirror></mirrors><localRepository>/usr/share/jenkins/ref/.m2/repository</localRepository></settings>' > settings.xml && \
-    /usr/local/maven/bin/mvn -s settings.xml -f repo-wc install && /usr/local/maven/bin/mvn -s settings.xml -f repo-wc/sometests -Dmaven.test.failure.ignore clean install
+    /usr/local/maven/bin/mvn -s settings.xml -f repo install && /usr/local/maven/bin/mvn -s settings.xml -f repo/sometests -Dmaven.test.failure.ignore clean install
 
 USER root
 COPY plugins /usr/share/jenkins/ref/plugins
@@ -35,26 +35,13 @@ RUN chown -R jenkins.jenkins /usr/share/jenkins/ref/plugins
 USER jenkins
 
 # Now copy the complete repo including Pipeline script (not only the files needed to warm up the Maven cache).
-RUN rm -rf repo-wc
-ADD repo repo-wc
+RUN rm -rf repo
+ADD repo repo
 ADD lib lib
 USER root
-RUN chown -R jenkins.jenkins repo-wc lib
+RUN chown -R jenkins.jenkins repo lib
 USER jenkins
-RUN git init --bare repo && \
-    cd repo-wc && \
-    git init && \
-    git add . && \
-    git -c user.email=demo@jenkins-ci.org -c user.name="Pipeline Demo" commit -m 'demo' && \
-    git push ../repo master && \
-    cd .. && \
-    rm -rfv repo-wc && \
-    cd lib && \
-    git init && \
-    git add . && \
-    git -c user.email=demo@jenkins-ci.org -c user.name="Pipeline Demo" commit -m 'demo'
-# TODO deletion of repo-wc does not seem to work: claims to have been deleted, but then still there in subsequent steps; anyway it is small
-# RUN ls -lRa; false
+RUN for r in repo lib; do (cd $r && git init && git add . && git -c user.email=demo@jenkins-ci.org -c user.name="Pipeline Demo" commit -m 'demo' && (echo '[receive]'; echo '    denyCurrentBranch = ignore') >> .git/config); done
 
 ADD JENKINS_HOME /usr/share/jenkins/ref
 
