@@ -35,7 +35,7 @@
               <configVersion>2</configVersion>
               <userRemoteConfigs>
                 <hudson.plugins.git.UserRemoteConfig>
-                  <url>/tmp/files/lib</url>
+                  <url>git://localhost/lib</url>
                 </hudson.plugins.git.UserRemoteConfig>
               </userRemoteConfigs>
               <branches>
