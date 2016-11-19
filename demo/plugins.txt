@@ -4,7 +4,7 @@ org.jenkins-ci.plugins:cloudbees-folder:5.13
 org.jenkins-ci.plugins:credentials:2.1.9
 org.jenkins-ci.plugins:display-url-api:0.5
 org.jenkins-ci.plugins:durable-task:1.12
-org.jenkins-ci.plugins:git:3.0.0
+org.jenkins-ci.plugins:git:3.0.1
 org.jenkins-ci.plugins:git-client:2.1.0
 org.jenkins-ci.plugins:git-server:1.7
 org.jenkins-ci.ui:handlebars:1.1.1

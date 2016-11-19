@@ -30,23 +30,14 @@
       <libraries>
         <org.jenkinsci.plugins.workflow.libs.LibraryConfiguration>
           <name>servers</name>
-          <retriever class="org.jenkinsci.plugins.workflow.libs.SCMRetriever">
-            <scm class="hudson.plugins.git.GitSCM">
-              <configVersion>2</configVersion>
-              <userRemoteConfigs>
-                <hudson.plugins.git.UserRemoteConfig>
-                  <url>git://localhost/lib</url>
-                </hudson.plugins.git.UserRemoteConfig>
-              </userRemoteConfigs>
-              <branches>
-                <hudson.plugins.git.BranchSpec>
-                  <name>${library.servers.version}</name>
-                </hudson.plugins.git.BranchSpec>
-              </branches>
-              <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-              <submoduleCfg class="list"/>
-              <extensions/>
-            </scm>
+          <retriever class="org.jenkinsci.plugins.workflow.libs.SCMSourceRetriever">
+              <scm class="jenkins.plugins.git.GitSCMSource">
+                  <id>whatever</id>
+                  <remote>git://localhost/lib</remote>
+                  <includes>*</includes>
+                  <excludes></excludes>
+                  <ignoreOnPushNotifications>false</ignoreOnPushNotifications>
+              </scm>
           </retriever>
           <defaultVersion>master</defaultVersion>
           <implicit>false</implicit>
