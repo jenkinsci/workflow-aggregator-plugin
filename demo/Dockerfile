@@ -38,10 +38,11 @@ USER jenkins
 RUN rm -rf repo
 ADD repo repo
 ADD lib lib
+ADD globallib globallib
 USER root
-RUN chown -R jenkins.jenkins repo lib
+RUN chown -R jenkins.jenkins repo lib globallib
 USER jenkins
-RUN for r in repo lib; do (cd $r && git init && git add . && git -c user.email=demo@jenkins-ci.org -c user.name="Pipeline Demo" commit -m 'demo' && (echo '[receive]'; echo '    denyCurrentBranch = ignore') >> .git/config); done
+RUN for r in repo lib globallib; do (cd $r && git init && git add . && git -c user.email=demo@jenkins-ci.org -c user.name="Pipeline Demo" commit -m 'demo' && (echo '[receive]'; echo '    denyCurrentBranch = ignore') >> .git/config); done
 
 ADD JENKINS_HOME /usr/share/jenkins/ref
 

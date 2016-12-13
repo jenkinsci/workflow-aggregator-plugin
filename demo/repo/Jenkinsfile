@@ -17,6 +17,7 @@ stage('QA') {
     }, quickerTests: {
         runTests(20)
     })
+    echo "Test results: ${testResult(currentBuild)}"
 }
 
 milestone 1
