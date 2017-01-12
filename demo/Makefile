@@ -1,5 +1,7 @@
 TAG=$(shell date -u +"%Y-%m-%d")
 IMAGE=jenkinsci/workflow-demo
+# Below will fetch the name of the docker host, and do a lookup, allowing the script to run with local docker or docker-machine both
+DOCKER_IP=$(docker info | grep -E '^Name: ' | sed 's/Name: //g' | xargs nslookup | grep -E 'Address: ' | sed 's/Address: //g' | uniq)
 DOCKER_RUN=docker run --rm -p 2222:2222 -p 8080:8080 -p 8081:8081 -p 9418:9418 -ti
 
 copy-plugins:
