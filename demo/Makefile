@@ -1,4 +1,4 @@
-TAG=$(shell date -u +"%Y-%m-%dT%H-%M-%S")
+TAG=$(shell date -u +"%Y-%m-%d")
 IMAGE=jenkinsci/workflow-demo
 DOCKER_RUN=docker run --rm -p 2222:2222 -p 8080:8080 -p 8081:8081 -p 9418:9418 -ti
 
