@@ -1,6 +1,6 @@
 TAG=$(shell date -u +"%Y-%m-%dT%H-%M-%S")
 IMAGE=jenkinsci/workflow-demo
-DOCKER_RUN=docker run --rm -p 127.0.0.1:2222:2222 -p 127.0.0.1:8080:8080 -p 127.0.0.1:8081:8081 -p 127.0.0.1:9418:9418 -ti
+DOCKER_RUN=docker run --rm -p 2222:2222 -p 8080:8080 -p 8081:8081 -p 9418:9418 -ti
 
 copy-plugins:
 	set -e; \
