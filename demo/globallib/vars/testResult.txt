@@ -1,0 +1,1 @@
+Call with `currentBuild` as an argument to get test results, as a map from `passed`/`failed`/`skipped` to a list of full names, like `some.pkg.SomeTest.testCase`.
