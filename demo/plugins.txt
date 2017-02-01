@@ -29,9 +29,9 @@ org.jenkins-ci.plugins:structs:1.5
 org.jenkins-ci.plugins.workflow:workflow-aggregator:2.4
 org.jenkins-ci.plugins.workflow:workflow-api:2.8
 org.jenkins-ci.plugins.workflow:workflow-basic-steps:2.3
-org.jenkins-ci.plugins.workflow:workflow-cps:2.23
+org.jenkins-ci.plugins.workflow:workflow-cps:2.24
 org.jenkins-ci.plugins.workflow:workflow-cps-global-lib:2.5
-org.jenkins-ci.plugins.workflow:workflow-durable-task-step:2.7
+org.jenkins-ci.plugins.workflow:workflow-durable-task-step:2.8
 org.jenkins-ci.plugins.workflow:workflow-job:2.9
 org.jenkins-ci.plugins.workflow:workflow-multibranch:2.9.2
 org.jenkins-ci.plugins.workflow:workflow-scm-step:2.3

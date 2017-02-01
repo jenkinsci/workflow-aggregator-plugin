@@ -63,7 +63,7 @@
         </pluginRepository>
     </pluginRepositories>
     <properties>
-        <jenkins.version>2.7.1</jenkins.version>
+        <jenkins.version>2.7.3</jenkins.version>
     </properties>
     <dependencies>
         <dependency>
