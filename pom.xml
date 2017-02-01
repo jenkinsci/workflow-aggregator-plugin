@@ -100,7 +100,7 @@
         <dependency>
             <groupId>org.6wind.jenkins</groupId>
             <artifactId>lockable-resources</artifactId>
-            <version>1.10</version>
+            <version>1.11</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
