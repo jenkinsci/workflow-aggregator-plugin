@@ -1,0 +1,11 @@
+--- Jenkinsfile
++++ Jenkinsfile
+@@ -1,7 +1,5 @@
+-@Library('tools') import demo.Servers
+-
+ jettyUrl = 'http://localhost:8081/'
+-servers = new Servers(this)
++servers = library(identifier: 'tools2@master', retriever: modernSCM([$class: 'GitSCMSource', remote: 'git://localhost/lib'])).demo.Servers.new(this)
+ 
+ stage('Dev') {
+     node {

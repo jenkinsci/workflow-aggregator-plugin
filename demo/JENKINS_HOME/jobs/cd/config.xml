@@ -12,8 +12,20 @@
         <excludes></excludes>
         <ignoreOnPushNotifications>false</ignoreOnPushNotifications>
       </source>
-      <strategy class="jenkins.branch.DefaultBranchPropertyStrategy">
-        <properties class="empty-list"/>
+      <strategy class="jenkins.branch.NamedExceptionsBranchPropertyStrategy">
+        <defaultProperties class="empty-list"/>
+        <namedExceptions class="java.util.Arrays$ArrayList">
+          <a class="jenkins.branch.NamedExceptionsBranchPropertyStrategy$Named-array">
+            <jenkins.branch.NamedExceptionsBranchPropertyStrategy_-Named>
+              <props class="java.util.Arrays$ArrayList">
+                <a class="jenkins.branch.BranchProperty-array">
+                  <jenkins.branch.NoTriggerBranchProperty/>
+                </a>
+              </props>
+              <name>!master</name>
+            </jenkins.branch.NamedExceptionsBranchPropertyStrategy_-Named>
+          </a>
+        </namedExceptions>
       </strategy>
     </jenkins.branch.BranchSource>
   </sources>
@@ -29,7 +41,7 @@
     <org.jenkinsci.plugins.workflow.libs.FolderLibraries>
       <libraries>
         <org.jenkinsci.plugins.workflow.libs.LibraryConfiguration>
-          <name>servers</name>
+          <name>tools</name>
           <retriever class="org.jenkinsci.plugins.workflow.libs.SCMSourceRetriever">
               <scm class="jenkins.plugins.git.GitSCMSource">
                   <id>whatever</id>
