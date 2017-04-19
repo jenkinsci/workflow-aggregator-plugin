@@ -1,7 +1,7 @@
 org.jenkins-ci.ui:ace-editor:1.1
 org.jenkins-ci.plugins:authentication-tokens:1.3
 io.jenkins.blueocean:blueocean:1.0.0
-org.jenkins-ci.plugins:blueocean-autofavorite:0.6
+org.jenkins-ci.plugins:blueocean-autofavorite:0.7
 io.jenkins.blueocean:blueocean-commons:1.0.0
 io.jenkins.blueocean:blueocean-config:1.0.0
 io.jenkins.blueocean:blueocean-dashboard:1.0.0
