@@ -1,16 +1,16 @@
-FROM jenkins:2.46.1
+FROM jenkins:2.46.2
 
 USER root
 
 # installed maven package is still 3.0.5, pretty old
-ENV MAVEN_VERSION 3.3.9
+ENV MAVEN_VERSION 3.5.0
 RUN cd /usr/local; wget -q -O - http://mirrors.ibiblio.org/apache/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xvfz - && \
     ln -sv /usr/local/apache-maven-$MAVEN_VERSION /usr/local/maven
 
 # install Jetty
 WORKDIR /opt
 # jetty package is still 8
-ENV JETTY_VERSION 9.2.12.v20150709
+ENV JETTY_VERSION 9.3.9.v20160517
 RUN wget -q -O - "http://archive.eclipse.org/jetty/$JETTY_VERSION/dist/jetty-distribution-$JETTY_VERSION.tar.gz" | tar xvfz - && \
     ln -sv jetty-distribution-$JETTY_VERSION jetty && \
     (cd /tmp; ln -s /opt/jetty/webapps) && \
