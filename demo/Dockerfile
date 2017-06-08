@@ -1,8 +1,8 @@
-FROM jenkins:2.46.2
+FROM jenkins:2.46.3
 
 USER root
 
-# installed maven package is still 3.0.5, pretty old
+# do not rely on installed maven package, which is generally too old
 ENV MAVEN_VERSION 3.5.0
 RUN cd /usr/local; wget -q -O - http://mirrors.ibiblio.org/apache/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xvfz - && \
     ln -sv /usr/local/apache-maven-$MAVEN_VERSION /usr/local/maven
