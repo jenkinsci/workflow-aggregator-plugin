@@ -1,4 +1,4 @@
-@Library('servers') import demo.Servers
+@Library('tools') import demo.Servers
 
 jettyUrl = 'http://localhost:8081/'
 servers = new Servers(this)
@@ -46,9 +46,6 @@ stage ('Production') {
             echo "Deployed to ${jettyUrl}production/"
         }
     }
-}
-def mvn(args) {
-    sh "${tool 'Maven 3.x'}/bin/mvn ${args}"
 }
 
 def runTests(duration) {
