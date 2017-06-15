@@ -59,7 +59,7 @@ org.jenkins-ci.plugins.pipeline-stage-view:pipeline-stage-view:2.8
 org.jenkins-ci.plugins:plain-credentials:1.4
 org.jenkins-ci.plugins:pubsub-light:1.8
 org.jenkins-ci.plugins:scm-api:2.1.1
-org.jenkins-ci.plugins:script-security:1.28
+org.jenkins-ci.plugins:script-security:1.29
 org.jenkins-ci.plugins:sse-gateway:1.15
 org.jenkins-ci.plugins:ssh-credentials:1.13
 org.jenkins-ci.plugins:structs:1.7
@@ -67,7 +67,7 @@ org.jenkins-ci.plugins:token-macro:2.1
 org.jenkins-ci.plugins:variant:1.1
 org.jenkins-ci.plugins.workflow:workflow-api:2.17
 org.jenkins-ci.plugins.workflow:workflow-basic-steps:2.5
-org.jenkins-ci.plugins.workflow:workflow-cps:2.35
+org.jenkins-ci.plugins.workflow:workflow-cps:2.36
 org.jenkins-ci.plugins.workflow:workflow-cps-global-lib:2.8
 org.jenkins-ci.plugins.workflow:workflow-durable-task-step:2.11
 org.jenkins-ci.plugins.workflow:workflow-job:2.11
