@@ -28,7 +28,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>2.31-20170612.235547-1</version> <!-- TODO https://github.com/jenkinsci/plugin-pom/pull/67 -->
+        <version>2.31-20170613.190825-2</version> <!-- TODO https://github.com/jenkinsci/plugin-pom/pull/67 -->
         <relativePath />
     </parent>
     <groupId>org.jenkins-ci.plugins.workflow</groupId>
@@ -80,12 +80,6 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>workflow-support</artifactId>
             <version>2.12</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.jenkins-ci.plugins</groupId>
-                    <artifactId>script-security</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -96,6 +90,11 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>workflow-scm-step</artifactId>
             <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.6wind.jenkins</groupId>
+            <artifactId>lockable-resources</artifactId>
+            <version>2.0</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -168,6 +167,18 @@
             <groupId>org.jenkins-ci.ui</groupId>
             <artifactId>handlebars</artifactId>
             <version>1.1.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>script-security</artifactId>
+            <version>1.28</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>mailer</artifactId>
+            <version>1.13</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
