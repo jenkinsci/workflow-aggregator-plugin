@@ -1,4 +1,4 @@
-FROM jenkins:2.60.2
+FROM jenkinsci/jenkins:2.73
 
 USER root
 
@@ -22,23 +22,10 @@ RUN apt-get update && \
 
 WORKDIR /tmp/files
 
-# Prepare local Maven repo. Note that $JENKINS_HOME is a volume so we cannot populate it now.
-RUN mkdir repo
-ADD repo/pom.xml repo/pom.xml
-ADD repo/src repo/src
-ADD repo/sometests repo/sometests
-RUN chown -R jenkins.jenkins .
-USER jenkins
-RUN echo '<settings><mirrors><mirror><id>central</id><url>http://repo.jenkins-ci.org/simple/repo1-cache/</url><mirrorOf>central</mirrorOf></mirror></mirrors><localRepository>/usr/share/jenkins/ref/.m2/repository</localRepository></settings>' > settings.xml && \
-    /usr/local/maven/bin/mvn -s settings.xml -f repo install && /usr/local/maven/bin/mvn -s settings.xml -f repo/sometests -Dmaven.test.failure.ignore clean install
-
-USER root
 COPY plugins /usr/share/jenkins/ref/plugins
 RUN chown -R jenkins.jenkins /usr/share/jenkins/ref/plugins
 USER jenkins
 
-# Now copy the complete repo including Pipeline script (not only the files needed to warm up the Maven cache).
-RUN rm -rf repo
 ADD repo repo
 ADD repo-branches repo-branches
 ADD lib lib

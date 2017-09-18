@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.jenkinsci.plugins.configfiles.maven.DefaultMavenSettingsProvider>
+  <configs>
+    <entry>
+      <string>jenkins-mirror</string>
+      <org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig>
+        <id>jenkins-mirror</id>
+        <name>Jenkins Mirror</name>
+        <comment></comment>
+        <content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <mirrors>
+    <mirror>
+      <id>central</id>
+      <url>http://repo.jenkins-ci.org/simple/repo1-cache/</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+  </mirrors>
+  <localRepository>/m2repo</localRepository>
+</settings>
+]]></content>
+        <providerId>org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig</providerId>
+        <serverCredentialMappings/>
+        <isReplaceAll>true</isReplaceAll>
+      </org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig>
+    </entry>
+  </configs>
+</org.jenkinsci.plugins.configfiles.maven.DefaultMavenSettingsProvider>

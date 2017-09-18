@@ -6,13 +6,13 @@ servers = new Servers(this)
 stage('Dev') {
     node {
         checkout scm
-        mvn '-o clean package'
+        mvn 'clean package'
         dir('target') {stash name: 'war', includes: 'x.war'}
     }
 }
 
 stage('QA') {
-    parallel([20, 30].collectEntries {duration -> ["tests-$duration", {runTests(duration)}]})
+    parallel([20, 30].collectEntries {["tests-$it", {runTests(it)}]})
     echo "Test results: ${testResult(currentBuild)}"
 }
 
@@ -48,7 +48,7 @@ def runTests(duration) {
     node {
         checkout scm
         servers.withDeployment {id ->
-            mvn "-o -f sometests test -Durl=${jettyUrl}${id}/ -Dduration=${duration}"
+            mvn "-f sometests test -Durl=${jettyUrl}${id}/ -Dduration=${duration}"
         }
         junit '**/target/surefire-reports/TEST-*.xml'
     }
