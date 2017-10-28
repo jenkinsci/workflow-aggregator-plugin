@@ -7,7 +7,7 @@ It highlights key parts of the Pipeline plugin:
 Run it like:
 
     docker volume create --name=m2repo
-    sudo chmod a+rw $$(docker volume inspect -f '{{.Mountpoint}}' m2repo)
+    sudo chmod a+rw $(docker volume inspect -f '{{.Mountpoint}}' m2repo)
     docker run --rm -p 127.0.0.1:2222:2222 -p 127.0.0.1:8080:8080 -p 127.0.0.1:8081:8081 -p 127.0.0.1:9418:9418 -ti -v m2repo:/m2repo jenkinsci/workflow-demo
 
 Jenkins runs on port 8080, and Jetty runs on port 8081. The Jenkins CLI is accessible via SSH on port 2222.
