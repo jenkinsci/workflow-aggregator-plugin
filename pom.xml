@@ -28,7 +28,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>2.36</version>
+        <version>2.37</version>
         <relativePath />
     </parent>
     <groupId>org.jenkins-ci.plugins.workflow</groupId>
@@ -162,6 +162,26 @@
             <groupId>org.jenkinsci.plugins</groupId>
             <artifactId>pipeline-model-definition</artifactId>
             <version>1.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>structs</artifactId>
+            <version>1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>scm-api</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>git-client</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>cloudbees-folder</artifactId>
+            <version>6.0.4</version>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.ui</groupId>
