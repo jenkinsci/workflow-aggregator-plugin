@@ -1,10 +1,10 @@
-FROM jenkinsci/jenkins:2.73
+FROM jenkinsci/jenkins:2.89.2
 
 USER root
 
 # do not rely on installed maven package, which is generally too old
-ENV MAVEN_VERSION 3.5.0
-RUN cd /usr/local; wget -q -O - http://mirrors.ibiblio.org/apache/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xvfz - && \
+ENV MAVEN_VERSION 3.5.2
+RUN cd /usr/local; wget -q -O - http://www-us.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xvfz - && \
     ln -sv /usr/local/apache-maven-$MAVEN_VERSION /usr/local/maven
 
 # install Jetty

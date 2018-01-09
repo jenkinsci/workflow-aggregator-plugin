@@ -14,7 +14,7 @@
     <properties>
         <jenkins.version>2.73</jenkins.version>
     </properties>
-    <name>Userspace SCM Demo</name>
+    <name>Pipeline Demo</name>
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
