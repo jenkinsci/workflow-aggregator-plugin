@@ -62,7 +62,7 @@
         </pluginRepository>
     </pluginRepositories>
     <properties>
-        <jenkins.version>2.121.3</jenkins.version>
+        <jenkins.version>2.130</jenkins.version>
         <java.level>8</java.level>
     </properties>
     <dependencies>
