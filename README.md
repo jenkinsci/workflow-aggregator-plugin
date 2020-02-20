@@ -23,8 +23,8 @@ GitHub](https://github.com/jenkinsci/pipeline-plugin). Quick links:
 -   [Pipeline demo Docker
     image](https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/README.md)
 
-Formerly known as the Workflow plugin. Originally inspired by the [Build
-Flow Plugin](https://wiki.jenkins.io/display/JENKINS/Build+Flow+Plugin).
+Formerly known as the Workflow plugin. Originally inspired by the discontinued [Build
+Flow Plugin](https://github.com/jenkinsci/build-flow-plugin).
 
 ## Version History
 Please refer to [the changelog](CHANGELOG.md).
