@@ -35,7 +35,7 @@
     <version>2.7-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>Pipeline</name>
-    <url>https://github.com/jenkinsci/workflow-aggregator-plugin</url>
+    <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
     <description>A suite of plugins that lets you orchestrate automation, simple or complex. See http://jenkins-ci.org/solutions/pipeline/ for more details</description>
     <licenses>
         <license>
