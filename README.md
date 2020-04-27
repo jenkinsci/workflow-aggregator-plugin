@@ -1,5 +1,5 @@
 # Jenkins Pipeline Plugin
-[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/workflow-aggregator.svg)](https://plugins.jenkins.io/workflow-agom/jenkinsci/workflow-aggregator-plugin/releases/latest)
+[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/workflow-aggregator.svg)](https://plugins.jenkins.io/workflow-aggregator)
 [![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/workflow-aggregator.svg?color=blue)](https://plugins.jenkins.io/workflow-aggregator)
 
 This plugin and its dependencies form a suite of plugins that lets you orchestrate automation, simple or
