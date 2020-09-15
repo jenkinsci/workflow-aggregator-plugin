@@ -32,9 +32,10 @@ stage('Staging') {
     }
 }
 
-milestone 3
 stage ('Production') {
     lock(resource: 'production-server', inversePrecedence: true) {
+        milestone 3
+        
         node {
             sh "wget -O - -S ${jettyUrl}staging/"
             echo 'Production server looks to be alive'
