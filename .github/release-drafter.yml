@@ -1,0 +1,2 @@
+_extends: .github
+tag-template: workflow-aggregator-$NEXT_MINOR_VERSION
