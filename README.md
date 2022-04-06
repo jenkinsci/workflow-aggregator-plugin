@@ -32,7 +32,7 @@ Plugins that implement Pipeline steps or integrate with Pipeline-related APIs **
 Instead, they should depend only on the plugins that provide the APIs necessary for the integration.
 For the common case of implementing a Pipeline step, plugins typically only need to depend on [`workflow-step-api`](https://plugins.jenkins.io/workflow-step-api/).
 In order to test Pipeline-related functionality, plugins need `test`-scope dependencies on [`workflow-job`](https://plugins.jenkins.io/workflow-job/) and [`workflow-cps`](https://plugins.jenkins.io/workflow-cps/).
-Additional `test`-scope dependencies on plugins like [`workflow-durable-task-step`](https://plugins.jenkins.io/workflow-durable-task-step) may be needed for more complex tests.
+Additional `test`-scope dependencies on plugins like [`workflow-durable-task-step`](https://plugins.jenkins.io/workflow-durable-task-step) or [`workflow-basic-steps`](https://plugins.jenkins.io/workflow-basic-steps) may be needed for more complex tests.
 
 ## Version History
 Please refer to [the changelog](CHANGELOG.md).
