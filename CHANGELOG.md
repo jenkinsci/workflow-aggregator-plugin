@@ -1,5 +1,7 @@
 # Changelog
 
+- For newer versions, see [GitHub Releases](https://github.com/jenkinsci/workflow-aggregator-plugin/releases)
+
 ## 2.6 (Oct 3, 2018)
 
 -   Updated dependencies.
