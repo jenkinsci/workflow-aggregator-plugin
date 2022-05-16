@@ -92,11 +92,6 @@
             <version>2.6</version>
         </dependency>
         <dependency>
-            <groupId>org.6wind.jenkins</groupId>
-            <artifactId>lockable-resources</artifactId>
-            <version>2.3</version>
-        </dependency>
-        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>workflow-cps</artifactId>
             <version>2.56</version>
