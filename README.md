@@ -35,4 +35,5 @@ In order to test Pipeline-related functionality, plugins need `test`-scope depen
 Additional `test`-scope dependencies on plugins like [`workflow-durable-task-step`](https://plugins.jenkins.io/workflow-durable-task-step) or [`workflow-basic-steps`](https://plugins.jenkins.io/workflow-basic-steps) may be needed for more complex tests.
 
 ## Version History
-Please refer to [the changelog](CHANGELOG.md).
+See [GitHub Releases](https://github.com/jenkinsci/workflow-aggregator-plugin/releases).
+For older versions, see [historical changelog](https://github.com/jenkinsci/workflow-aggregator-plugin/blob/972e0fa8cb807739dcaf07be76e531aad72b847e/CHANGELOG.md).
