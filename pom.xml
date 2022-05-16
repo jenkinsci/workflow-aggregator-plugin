@@ -32,7 +32,7 @@
     </parent>
     <groupId>org.jenkins-ci.plugins.workflow</groupId>
     <artifactId>workflow-aggregator</artifactId>
-    <version>2.8-SNAPSHOT</version>
+    <version>${changelist}</version>
     <packaging>hpi</packaging>
     <name>Pipeline</name>
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
@@ -46,8 +46,8 @@
         <connection>scm:git:git://github.com/${gitHubRepo}.git</connection>
         <developerConnection>scm:git:git@github.com:${gitHubRepo}.git</developerConnection>
         <url>https://github.com/${gitHubRepo}</url>
-      <tag>HEAD</tag>
-  </scm>
+				<tag>${scmTag}</tag>
+		</scm>
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
@@ -61,6 +61,7 @@
         </pluginRepository>
     </pluginRepositories>
     <properties>
+        <changelist>999999-SNAPSHOT</changelist>
         <jenkins.version>2.289.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     </properties>
