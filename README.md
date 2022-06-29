@@ -20,8 +20,6 @@ GitHub](https://github.com/jenkinsci/pipeline-plugin). Quick links:
     Engine](https://github.com/jenkinsci/workflow-cps-plugin)
 -   [SCM
     step](https://github.com/jenkinsci/workflow-scm-step-plugin/blob/master/README.md)
--   [Pipeline demo Docker
-    image](https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/README.md)
 
 Formerly known as the Workflow plugin. Originally inspired by the discontinued [Build
 Flow Plugin](https://github.com/jenkinsci/build-flow-plugin).
