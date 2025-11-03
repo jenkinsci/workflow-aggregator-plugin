@@ -1,0 +1,8 @@
+name: Automatically approve and merge safe dependency updates
+on:
+- pull_request_target
+permissions:
+  pull-requests: write
+jobs:
+  auto-merge-safe-deps:
+    uses: jglick/github-reusable-workflows/.github/workflows/auto-merge-safe-deps.yml@automerge
